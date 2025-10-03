@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/todos";
+const API_URL = "https://backendtodo-eight.vercel.app/api/todos";
 
 const getAll = async () => {
   const result = await axios.get(API_URL);
