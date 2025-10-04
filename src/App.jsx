@@ -1,21 +1,14 @@
-import { useEffect } from "react";
+import React from "react";
 import "./App.css";
-import TodoForm from "./components/todoForm";
-import TodoList from "./components/todoList";
-import { Layout, Typography } from "antd";
-import { useDispatch } from "react-redux";
-import { fetchTodos } from "./features/todoSlice";
+import { Route, Routes } from "react-router";
+import Home from "./Home";
+import FilesUpload from "./FilesUpload";
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchTodos());
-  }, [dispatch]);
   return (
-    <Layout style={{ minHeight: "100vh", padding: 24 }}>
-      <Typography.Title level={2}>To-Do List </Typography.Title>
-      <TodoForm />
-      <TodoList />
-    </Layout>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/upload" element={<FilesUpload />} />
+    </Routes>
   );
 }
 
