@@ -4,15 +4,16 @@ import { UploadOutlined } from "@ant-design/icons";
 import axios from "axios";
 const UploadForm = ({ onUploadSuccess }) => {
   const [loading, setLoading] = useState(false);
+  const API_URL = "http://localhost:5000/upload";
   const props = {
     name: "file",
-    action: "/api/upload", //pending task
+    action: `${API_URL}`, //pending task
     customRequest: async ({ file }) => {
       setLoading(true);
       try {
         const formData = new FormData();
         formData.append("file", file);
-        const response = await axios.post("/api/upload", formData);
+        const response = await axios.post(`${API_URL}`, formData);
         console.log(response, "response");
         message.success("Upload successful");
         setLoading(false);
